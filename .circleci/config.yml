@@ -32,10 +32,10 @@ jobs:
           name: mUnit Test
           command: |
             mvn clean test -s settings.xml
-      - run:
-          name: artifactory deployment
-          command: |
-            mvn clean deploy -s settings.xml
+      # - run:
+      #     name: artifactory deployment
+      #     command: |
+      #       mvn clean deploy -s settings.xml
       - run:
           name: cloudhub deployment
           command: |
