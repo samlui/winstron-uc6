@@ -1,0 +1,50 @@
+version: 2.1
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build:
+          context: mule
+jobs:
+  build:
+    docker:
+      - image: 'circleci/openjdk:8-jdk'
+        environment:
+          MULE_VERSION: 4.3.0
+          MULE_APP_NAME: mulesoft-gitlab-cd
+          MULE_ENV: DEV
+          MULE_WORKER_TYP: MICRO
+          MULE_WORKER: 1
+    steps:
+      - checkout
+      - restore_cache:
+          key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
+      - run:
+          name: Build
+          command: |
+            mvn clean compile -s settings.xml
+      - run:
+          name: mUnit Test
+          command: |
+            mvn clean test -s settings.xml
+      - run:
+          name: artifactory deployment
+          command: |
+            mvn clean deploy -s settings.xml
+      - run:
+          name: cloudhub deployment
+          command: |
+            mvn -s settings.xml clean deploy -DmuleDeploy\
+-DMULE_ENV=${MULE_ENV}\
+-DMULE_VERSION=${MULE_VERSION}\   
+-DMULE_APP_NAME=${MULE_APP_NAME}\
+-DMULE_WORKER_TYP=${MULE_WORKER_TYP}\ 
+-DMULE_WORKER=${MULE_WORKER} \
+-DMULE_USERNAME=${MULE_USERNAME}\
+-Dcentral_password=${central_password}\
+-Dmule_repo_user=${mule_repo_user} \
+-Dmule_repo_pass=${mule_repo_pass}
