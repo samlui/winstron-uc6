@@ -7,7 +7,6 @@ workflows:
           context: mule
 jobs:
   build:
-    working_directory: /tmp
     docker:
       - image: 'circleci/openjdk:8-jdk'
         environment:
