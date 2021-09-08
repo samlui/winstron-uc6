@@ -10,11 +10,12 @@ jobs:
     docker:
       - image: 'circleci/openjdk:8-jdk'
         environment:
-          MULE_VERSION: 4.3.0
-          MULE_APP_NAME: wistron-u6
-          MULE_ENV: Sandbox
-          MULE_WORKER_TYP: MICRO
-          MULE_WORKER: 1
+          MULE_VERSION: '4.3.0'
+          MULE_APP_NAME: 'wistron-u6'
+          MULE_ENV: 'Sandbox'
+          MULE_WORKER_TYP: 'MICRO'
+          MULE_WORKER: '1'
+          MULE_REGION: 'ap-southeast-2'
     steps:
       - checkout
       - restore_cache:
@@ -38,4 +39,4 @@ jobs:
       - run:
           name: cloudhub deployment
           command: |
-            mvn -s settings.xml clean deploy -DmuleDeploy -DMULE_ENV=${MULE_ENV} -DMULE_VERSION=${MULE_VERSION} -DMULE_APP_NAME=${MULE_APP_NAME} -DMULE_WORKER_TYP=${MULE_WORKER_TYP} -DMULE_WORKER=${MULE_WORKER} -DMULE_USERNAME=${MULE_USERNAME} -Dcentral_password=${central_password} -Dmule_repo_user=${mule_repo_user} -Dmule_repo_pass=${mule_repo_pass}
+            mvn -s settings.xml clean deploy -DMULE_USERNAME=${MULE_USERNAME} -DMULE_PASSWORD=${MULE_PASSWORD} -DmuleDeploy

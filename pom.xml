@@ -2,7 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mycompany</groupId>
+	<!-- <groupId>com.mycompany</groupId> -->
+	<groupId>e146e387-a4e9-429f-86e3-5b6d72801414</groupId>
 	<artifactId>wistron-uc6</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
@@ -32,21 +33,36 @@
 				<configuration>
 		     	<cloudHubDeployment>
 		          <uri>https://anypoint.mulesoft.com</uri>
-		          <muleVersion>${MULE_VERSION}</muleVersion>
+		          <muleVersion>4.3.0</muleVersion>
 		          <username>${MULE_USERNAME}</username>
 		          <password>${MULE_PASSWORD}</password>
-		          <applicationName>${MULE_APP_NAME}</applicationName>
-		          <environment>${MULE_ENV}</environment>
-		          <workers>${MULE_WORKER}</workers>
-		          <workerType>${MULE_WORKER_TYP}</workerType>
+							<!-- <password>Hello000</password> -->
+		          <applicationName>wistron-u6</applicationName>
+		          <environment>Sandbox</environment>
+		          <workers>1</workers>
+		          <workerType>MICRO</workerType>
+							<businessGroup>Mulesoft-Master\Mule-PoC\Wistron</businessGroup>
+							<businessGroupId>e146e387-a4e9-429f-86e3-5b6d72801414</businessGroupId>
+			        <region>ap-southeast-1</region>
+
 		          <properties>
 		            <key>value</key>
 		          </properties>
-		      </cloudHubDeployment>
+	      	</cloudHubDeployment>
 		    </configuration>
 			</plugin>
 		</plugins>
 	</build>
+
+	<distributionManagement>
+	 	<repository>
+			<id>ExchangeRepository</id>
+			<name>Corporate Repository</name>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
+			<!-- <url>https://maven.anypoint.mulesoft.com/api/v1/organizations/${groupId}/maven</url> -->
+			<layout>default</layout>
+	 	</repository>
+	</distributionManagement>
 
 	<dependencies>
 		<dependency>

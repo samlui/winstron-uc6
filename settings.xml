@@ -8,6 +8,11 @@
          <username>paulyhchan.nexus</username>
          <password>LBdEWrqC</password>
       </server>
+      <server>
+            <id>ExchangeRepository</id>
+            <username>lui-sam</username>
+            <password>Hello000</password>
+      </server>
    </servers>
    <profiles>
       <profile>
