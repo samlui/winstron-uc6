@@ -7,6 +7,7 @@ workflows:
           context: mule
 jobs:
   build:
+    working_directory: /tmp
     docker:
       - image: 'circleci/openjdk:8-jdk'
         environment:
@@ -40,3 +41,10 @@ jobs:
           name: cloudhub deployment
           command: |
             mvn -s settings.xml clean deploy -DMULE_USERNAME=${MULE_USERNAME} -DMULE_PASSWORD=${MULE_PASSWORD} -DmuleDeploy
+      - run:
+          name: Store Mule App Artifacts
+          command: |
+            mkdir /tmp/artifacts
+            cp target/*.jar /tmp/artifacts
+      - store_artifacts:
+        path: /tmp/artifacts
