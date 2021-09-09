@@ -18,12 +18,12 @@ jobs:
           MULE_REGION: 'ap-southeast-2'
     steps:
       - checkout
-      - restore_cache:
-          key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
-      - save_cache:
-          paths:
-            - ~/.m2
-          key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
+      # - restore_cache:
+      #     key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
+      # - save_cache:
+      #     paths:
+      #       - ~/.m2
+      #     key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
       - run:
           name: Build
           command: |
