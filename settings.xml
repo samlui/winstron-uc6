@@ -8,26 +8,25 @@
          <username>paulyhchan.nexus</username>
          <password>LBdEWrqC</password>
       </server>
-      <server>
+<!--       <server>
             <id>ExchangeRepository</id>
             <username>lui-sam</username>
             <password>Hello000</password>
-      </server>
+      </server> -->
    </servers>
    <profiles>
       <profile>
-         <!-- <id>Mule</id> -->
-         <id>MuleRepository</id>
+         <id>Mule</id>
          <activation>
             <activeByDefault>true</activeByDefault>
          </activation>
          <repositories>
-	         <repository>
+	         <!-- <repository>
 		      <id>mulesoft-release</id>
 		      <name>muleSoft release repository</name>
 		      <url>https://repository.mulesoft.org/releases/</url>
 		      <layout>default</layout>
-		    </repository>
+		    </repository> -->
             <repository>
                <id>MuleRepository</id>
                <name>MuleRepository</name>

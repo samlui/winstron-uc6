@@ -35,8 +35,8 @@
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>4.3.0</muleVersion>
-						<username>lui-sam</username>
-						<password>Hello000</password>
+						<username>${MULE_USERNAME}</username>
+						<password>${MULE_PASSWORD}</password>
 						<applicationName>wistron-u6</applicationName>
 						<environment>Sandbox</environment>
 						<workers>1</workers>
@@ -75,16 +75,16 @@
 			</plugin>
 		</plugins>
 	</build>
-
+<!--
 	<distributionManagement>
 		<repository>
 			<id>ExchangeRepository</id>
 			<name>Corporate Repository</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url> -->
 			<!-- <url>https://maven.anypoint.mulesoft.com/api/v1/organizations/${groupId}/maven</url> -->
-			<layout>default</layout>
+			<!-- <layout>default</layout>
 		</repository>
-	</distributionManagement>
+	</distributionManagement> -->
 
 	<dependencies>
 		<dependency>
@@ -122,7 +122,7 @@
 	</dependencies>
 
 	<repositories>
-		<repository>
+ 		<repository>
 			<id>anypoint-exchange-v2</id>
 			<name>Anypoint Exchange</name>
 			<url>https://maven.anypoint.mulesoft.com/api/v2/maven</url>
