@@ -16,11 +16,18 @@
    </servers>
    <profiles>
       <profile>
-         <id>Mule</id>
+         <!-- <id>Mule</id> -->
+         <id>MuleRepository</id>
          <activation>
             <activeByDefault>true</activeByDefault>
          </activation>
          <repositories>
+	         <repository>
+		      <id>mulesoft-release</id>
+		      <name>muleSoft release repository</name>
+		      <url>https://repository.mulesoft.org/releases/</url>
+		      <layout>default</layout>
+		    </repository>
             <repository>
                <id>MuleRepository</id>
                <name>MuleRepository</name>
