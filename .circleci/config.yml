@@ -18,12 +18,12 @@ jobs:
           MULE_REGION: 'ap-southeast-2'
     steps:
       - checkout
-      # - restore_cache:
-      #     key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
-      # - save_cache:
-      #     paths:
-      #       - ~/.m2
-      #     key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
+      - restore_cache:
+          key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
       - run:
           name: Build
           command: |
@@ -31,9 +31,9 @@ jobs:
       - run:
           name: mUnit Test
           command: |
-            mvn -X clean test -s settings.xml -DMULE_USERNAME=${MULE_USERNAME} -DMULE_PASSWORD=${MULE_PASSWORD}
-      - store_test_results:
-          path: target/site/munit/coverage
+            mvn clean test -s settings.xml -DMULE_USERNAME=${MULE_USERNAME} -DMULE_PASSWORD=${MULE_PASSWORD}
+      # - store_test_results:
+      #     path: target/site/munit/coverage
       # - run:
       #     name: artifactory deployment
       #     command: |
