@@ -10,38 +10,38 @@ jobs:
     docker:
       - image: 'circleci/openjdk:8-jdk'
         environment:
-          MULE_VERSION: '4.3.0'
-          MULE_APP_NAME: 'wistron-u6'
-          MULE_ENV: 'Sandbox'
-          MULE_WORKER_TYP: 'MICRO'
-          MULE_WORKER: '1'
-          MULE_REGION: 'ap-southeast-2'
+          MULE_VERSION: 4.3.0
+          MULE_APP_NAME: wistron-u6
+          MULE_ENV: Sandbox
+          MULE_WORKER_TYP: MICRO
+          MULE_WORKER: 1
+          MULE_REGION: ap-southeast-2
     steps:
       - checkout
-      # - restore_cache:
-      #     key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
-      # - save_cache:
-      #     paths:
-      #       - ~/.m2
-      #     key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
+      - restore_cache:
+          key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
       - run:
           name: Build
           command: |
             mvn clean compile -s settings.xml
-      # - run:
-          # name: mUnit Test
-          # command: |
-          #   mvn clean test -s settings.xml -DMULE_USERNAME=${MULE_USERNAME} -DMULE_PASSWORD=${MULE_PASSWORD}
-      # - store_test_results:
-      #     path: target/site/munit/coverage
-      # - run:
-      #     name: artifactory deployment
-      #     command: |
-      #       mvn clean deploy -s settings.xml
+      - run:
+          name: mUnit Test
+          command: |
+            mvn clean test -s settings.xml
+      - store_test_results:
+          path: target/site/munit/coverage
+      - run:
+          name: artifactory deployment
+          command: |
+            mvn clean deploy -s settings.xml
       - run:
           name: cloudhub deployment
           command: |
-            mvn -X -s settings.xml clean deploy -DmuleDeploy
+            mvn -s settings.xml clean deploy -DmuleDeploy -DMULE_USERNAME=${MULE_USERNAME} -DMULE_PASSWORD=${MULE_PASSWORD}
       - run:
           name: Store Mule App Artifacts
           command: |
