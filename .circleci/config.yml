@@ -42,7 +42,7 @@ jobs:
           name: cloudhub deployment
           command: |
           # mvn -X -s settings.xml clean deploy -DMULE_USERNAME=${MULE_USERNAME} -DMULE_PASSWORD=${MULE_PASSWORD} -DmuleDeploy
-          mvn -X -s settings.xml clean deploy -DmuleDeploy
+            mvn -X -s settings.xml clean deploy -DmuleDeploy
       - run:
           name: Store Mule App Artifacts
           command: |
