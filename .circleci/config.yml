@@ -28,10 +28,10 @@ jobs:
           name: Build
           command: |
             mvn clean compile -s settings.xml
-      - run:
-          name: mUnit Test
-          command: |
-            mvn clean test -s settings.xml -DMULE_USERNAME=${MULE_USERNAME} -DMULE_PASSWORD=${MULE_PASSWORD}
+      # - run:
+          # name: mUnit Test
+          # command: |
+          #   mvn clean test -s settings.xml -DMULE_USERNAME=${MULE_USERNAME} -DMULE_PASSWORD=${MULE_PASSWORD}
       # - store_test_results:
       #     path: target/site/munit/coverage
       # - run:
