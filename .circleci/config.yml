@@ -33,9 +33,11 @@ jobs:
           command: |
             mvn clean test -s settings.xml
       - store_test_results:
-          path: target/surefire-reports
+          path: target/sonar-reports
       - store_test_results:
           path: target/site/munit/coverage
+      - store_test_results:
+          path: target/surefire-reports
       # - store_test_results:
       #     path: target/site/munit/coverage
       # - run:
