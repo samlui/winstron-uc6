@@ -32,6 +32,8 @@ jobs:
           name: mUnit Test
           command: |
             mvn clean test -s settings.xml
+      - store_test_results:
+          path: cd target/site/munit/coverage
       # - run:
       #     name: artifactory deployment
       #     command: |
