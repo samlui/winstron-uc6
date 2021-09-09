@@ -32,6 +32,10 @@ jobs:
           name: mUnit Test
           command: |
             mvn clean test -s settings.xml
+      - store_test_results:
+          path: target/surefire-reports
+      - store_test_results:
+          path: target/site/munit/coverage
       # - store_test_results:
       #     path: target/site/munit/coverage
       # - run:
