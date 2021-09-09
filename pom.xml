@@ -35,8 +35,8 @@
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>4.3.0</muleVersion>
-						<username>${MULE_USERNAME}</username>
-						<password>${MULE_PASSWORD}</password>
+						<username>lui-sam</username>
+						<password>Hello000</password>
 						<applicationName>wistron-u6</applicationName>
 						<environment>Sandbox</environment>
 						<workers>1</workers>
@@ -44,7 +44,6 @@
 						<businessGroup>Mulesoft-Master\Mule-PoC\Wistron</businessGroup>
 						<businessGroupId>e146e387-a4e9-429f-86e3-5b6d72801414</businessGroupId>
 						<region>ap-southeast-1</region>
-
 						<properties>
 							<key>value</key>
 						</properties>
