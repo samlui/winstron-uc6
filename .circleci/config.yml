@@ -31,9 +31,9 @@ jobs:
       - run:
           name: mUnit Test
           command: |
-            mvn clean test -s settings.xml
+            mvn clean test -s settings.xml -DMULE_USERNAME=${MULE_USERNAME} -DMULE_PASSWORD=${MULE_PASSWORD}
       - store_test_results:
-          path: cd target/site/munit/coverage
+          path: target/site/munit/coverage
       # - run:
       #     name: artifactory deployment
       #     command: |
