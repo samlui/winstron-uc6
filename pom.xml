@@ -37,7 +37,6 @@
 						<muleVersion>4.3.0</muleVersion>
 						<username>${MULE_USERNAME}</username>
 						<password>${MULE_PASSWORD}</password>
-						<!-- <password>Hello000</password> -->
 						<applicationName>wistron-u6</applicationName>
 						<environment>Sandbox</environment>
 						<workers>1</workers>
