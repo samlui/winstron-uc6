@@ -10,6 +10,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	</http:listener-config>
 	<flow name="wistron-uc6Flow" doc:id="801c8c0d-df60-4a2b-ba09-e98e8d06b84c" >
 		<http:listener doc:name="Listener" doc:id="b3c209fa-2e9e-4179-8127-6c2a6ee4965c" config-ref="HTTP_Listener_config" path="/uc6"/>
+		<logger level="INFO" doc:name="Logger" doc:id="2189c94f-0697-497c-866b-e63f9c74ba03" />
 		<ee:transform doc:name="Transform Message" doc:id="57dbb398-686e-44a5-a88d-a692b770f4bb" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
