@@ -5,14 +5,16 @@
       <server>
          <id>MuleRepository</id>
          <!-- Provided by Support -->
-         <username>paulyhchan.nexus</username>
-         <password>LBdEWrqC</password>
+         <!-- <username>paulyhchan.nexus</username>
+         <password>LBdEWrqC</password> -->
+         <username>${NEXUS_USERNAME}</username>
+         <password>${NEXUS_PASSWORD}</password>
       </server>
-<!--       <server>
+      <server>
             <id>ExchangeRepository</id>
-            <username>lui-sam</username>
-            <password>Hello000</password>
-      </server> -->
+            <username>${MULE_USERNAME}</username>
+            <password>${MULE_PASSWORD}</password>
+      </server>
    </servers>
    <profiles>
       <profile>
