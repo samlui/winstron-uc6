@@ -20,8 +20,8 @@
 		<munit:execution >
 			<flow-ref doc:name="Flow-ref to wistron-uc6Flow" doc:id="c61c7f4f-b1be-456b-b78a-fd9eff7e61a5" name="wistron-uc6Flow"/>
 		</munit:execution>
-		<munit:validation >
-			<munit-tools:fail doc:name="Fail" doc:id="ccb4e736-c6f7-4625-b036-bc8a60934b18" message="Test failed... output mismatched !!"/>
+		<munit:validation>
+			<munit-tools:assert doc:name="Copy_of_Assert expression" doc:id="214897d2-f5c3-4867-a000-72271931f855" message="Assertion failed 2"/>
 		</munit:validation>
 	</munit:test>
 
